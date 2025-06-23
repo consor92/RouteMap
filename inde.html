@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap - Desarrollo de Sistema Completo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav a:hover {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            padding-left: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tech-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .pros, .cons {
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .pros {
+            background: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid #28a745;
+        }
+
+        .cons {
+            background: rgba(220, 53, 69, 0.1);
+            border-left: 4px solid #dc3545;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .resource-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .resource-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .resource-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .resource-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .resource-item a {
+            color: #764ba2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .resource-item a:hover {
+            text-decoration: underline;
+        }
+
+        .alert {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #ffc107;
+        }
+
+        .alert-success {
+            background: rgba(40, 167, 69, 0.1);
+            border-color: #28a745;
+            border-left-color: #28a745;
+        }
+
+        .alert-info {
+            background: rgba(23, 162, 184, 0.1);
+            border-color: #17a2b8;
+            border-left-color: #17a2b8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Roadmap de Desarrollo de Sistema Completo</h1>
+            <p>Guía completa para estudiantes de 6° año - Proyecto Final con React, Node.js, Express, SQL y Scrum</p>
+        </div>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="#analisis">📊 Análisis</a></li>
+                <li><a href="#tecnologias">⚙️ Tecnologías</a></li>
+                <li><a href="#organizacion">👥 Organización</a></li>
+                <li><a href="#diseno">🎨 Diseño</a></li>
+                <li><a href="#desarrollo">💻 Desarrollo</a></li>
+                <li><a href="#documentacion">📚 Documentación</a></li>
+            </ul>
+        </nav>
+
+        <section id="analisis" class="section">
+            <h2><span class="icon">📊</span>Análisis del Sistema</h2>
+            
+            <h3>1. Identificación de la Problemática</h3>
+            <div class="alert">
+                <strong>Paso 1:</strong> Realizar entrevistas con el cliente para entender el problema real que necesita resolver.
+            </div>
+            
+            <h3>2. Metodología Diamante para Recolección de Información</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Fase 1: Descubrir (Divergente)</h4>
+                    <p>Realizar entrevistas abiertas, encuestas exploratorias y observación del contexto actual.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Fase 2: Definir (Convergente)</h4>
+                    <p>Analizar la información recolectada y definir el problema específico a resolver.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Fase 3: Desarrollar (Divergente)</h4>
+                    <p>Generar múltiples ideas y soluciones posibles para el problema definido.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Fase 4: Entregar (Convergente)</h4>
+                    <p>Seleccionar la mejor solución y definir los requerimientos específicos.</p>
+                </div>
+            </div>
+
+            <h3>3. Requerimientos Funcionales y No Funcionales</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Requerimiento</th>
+                        <th>Descripción</th>
+                        <th>Prioridad</th>
+                        <th>Justificación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Funcional</strong></td>
+                        <td>Autenticación de usuarios</td>
+                        <td>Sistema de login/registro</td>
+                        <td>Alta</td>
+                        <td>Seguridad y personalización</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Funcional</strong></td>
+                        <td>CRUD de datos principales</td>
+                        <td>Crear, leer, actualizar, eliminar</td>
+                        <td>Alta</td>
+                        <td>Funcionalidad core del sistema</td>
+                    </tr>
+                    <tr>
+                        <td><strong>No Funcional</strong></td>
+                        <td>Tiempo de respuesta</td>
+                        <td>< 3 segundos por operación</td>
+                        <td>Media</td>
+                        <td>Experiencia de usuario</td>
+                    </tr>
+                    <tr>
+                        <td><strong>No Funcional</strong></td>
+                        <td>Disponibilidad</td>
+                        <td>99% uptime</td>
+                        <td>Alta</td>
+                        <td>Confiabilidad del servicio</td>
+                    </tr>
+                    <tr>
+                        <td><strong>No Funcional</strong></td>
+                        <td>Seguridad</td>
+                        <td>Encriptación de datos sensibles</td>
+                        <td>Alta</td>
+                        <td>Protección de información</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>4. Diagramas UML</h3>
+            <div class="alert alert-info">
+                <strong>Herramientas recomendadas:</strong>
+                <ul>
+                    <li><strong>Draw.io:</strong> Gratuito, online, fácil de usar</li>
+                    <li><strong>Lucidchart:</strong> Profesional, colaborativo</li>
+                    <li><strong>PlantUML:</strong> Diagramas como código</li>
+                </ul>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Diagrama de Casos de Uso</h4>
+                    <p>Identifica actores (usuarios) y las acciones que pueden realizar en el sistema.</p>
+                    <ul>
+                        <li>Definir actores principales</li>
+                        <li>Listar casos de uso por actor</li>
+                        <li>Establecer relaciones entre casos</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Diagrama de Clases</h4>
+                    <p>Representa la estructura estática del sistema con clases, atributos y métodos.</p>
+                    <ul>
+                        <li>Identificar entidades principales</li>
+                        <li>Definir atributos y métodos</li>
+                        <li>Establecer relaciones y cardinalidades</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="tecnologias" class="section">
+            <h2><span class="icon">⚙️</span>Decisiones Tecnológicas</h2>
+            
+            <h3>1. Elección del Entorno</h3>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>🌐 Aplicación Web</h4>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <strong>✅ Ventajas:</strong>
+                            <ul>
+                                <li>Acceso desde cualquier dispositivo</li>
+                                <li>No requiere instalación</li>
+                                <li>Actualizaciones automáticas</li>
+                                <li>Menor costo de desarrollo</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <strong>❌ Desventajas:</strong>
+                            <ul>
+                                <li>Requiere conexión a internet</li>
+                                <li>Limitaciones de rendimiento</li>
+                                <li>Dependiente del navegador</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-card">
+                    <h4>📱 Aplicación Móvil</h4>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <strong>✅ Ventajas:</strong>
+                            <ul>
+                                <li>Mejor experiencia de usuario</li>
+                                <li>Acceso a funciones nativas</li>
+                                <li>Funciona offline</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <strong>❌ Desventajas:</strong>
+                            <ul>
+                                <li>Mayor complejidad de desarrollo</li>
+                                <li>Requiere instalación</li>
+                                <li>Proceso de aprobación en stores</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>2. Stack Tecnológico Recomendado</h3>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>⚛️ React (Frontend)</h4>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <strong>✅ Pros:</strong>
+                            <ul>
+                                <li>Componentes reutilizables</li>
+                                <li>Gran comunidad y ecosistema</li>
+                                <li>Virtual DOM para rendimiento</li>
+                                <li>Fácil de aprender</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <strong>❌ Contras:</strong>
+                            <ul>
+                                <li>Curva de aprendizaje inicial</li>
+                                <li>Cambios frecuentes en el ecosistema</li>
+                                <li>Requiere herramientas adicionales</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>🟢 Node.js (Backend Runtime)</h4>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <strong>✅ Pros:</strong>
+                            <ul>
+                                <li>JavaScript en frontend y backend</li>
+                                <li>Gran rendimiento para I/O</li>
+                                <li>NPM con miles de paquetes</li>
+                                <li>Comunidad activa</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <strong>❌ Contras:</strong>
+                            <ul>
+                                <li>Single-threaded</li>
+                                <li>No ideal para CPU intensivo</li>
+                                <li>Callback hell (solucionado con async/await)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tech-card">
+                    <h4>🚂 Express.js (Framework Backend)</h4>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <strong>✅ Pros:</strong>
+                            <ul>
+                                <li>Minimalista y flexible</li>
+                                <li>Middleware robusto</li>
+                                <li>Fácil de aprender</li>
+                                <li>Gran documentación</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <strong>❌ Contras:</strong>
+                            <ul>
+                                <li>Requiere configuración manual</li>
+                                <li>No incluye ORM por defecto</li>
+                                <li>Estructura libre (puede ser caótica)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tech-card">
+                    <h4>🗄️ PostgreSQL/MySQL (Base de Datos)</h4>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <strong>✅ Pros:</strong>
+                            <ul>
+                                <li>ACID compliance</li>
+                                <li>Relaciones complejas</li>
+                                <li>Consultas SQL potentes</li>
+                                <li>Maduro y estable</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <strong>❌ Contras:</strong>
+                            <ul>
+                                <li>Esquema rígido</li>
+                                <li>Escalabilidad horizontal compleja</li>
+                                <li>Requiere conocimiento SQL</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="organizacion" class="section">
+            <h2><span class="icon">👥</span>Organización del Proyecto con Scrum</h2>
+            
+            <h3>1. Roles Scrum</h3>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>🎯 Product Owner</h4>
+                    <p><strong>Responsabilidades:</strong></p>
+                    <ul>
+                        <li>Definir y priorizar el Product Backlog</li>
+                        <li>Comunicación con el cliente</li>
+                        <li>Aceptar o rechazar entregables</li>
+                        <li>Definir criterios de aceptación</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>🏃‍♂️ Scrum Master</h4>
+                    <p><strong>Responsabilidades:</strong></p>
+                    <ul>
+                        <li>Facilitar ceremonias Scrum</li>
+                        <li>Remover impedimentos</li>
+                        <li>Coaching del equipo</li>
+                        <li>Proteger al equipo de distracciones</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>👨‍💻 Development Team</h4>
+                    <p><strong>Responsabilidades:</strong></p>
+                    <ul>
+                        <li>Desarrollar el producto</li>
+                        <li>Auto-organización</li>
+                        <li>Estimar esfuerzo de tareas</li>
+                        <li>Entregar incrementos funcionales</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>2. Ceremonias Scrum</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ceremonia</th>
+                        <th>Duración</th>
+                        <th>Frecuencia</th>
+                        <th>Objetivo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sprint Planning</strong></td>
+                        <td>2-4 horas</td>
+                        <td>Inicio de cada Sprint</td>
+                        <td>Planificar el trabajo del Sprint</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Daily Standup</strong></td>
+                        <td>15 minutos</td>
+                        <td>Diario</td>
+                        <td>Sincronizar el equipo</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sprint Review</strong></td>
+                        <td>1-2 horas</td>
+                        <td>Final de cada Sprint</td>
+                        <td>Demostrar el incremento</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sprint Retrospective</strong></td>
+                        <td>1 hora</td>
+                        <td>Final de cada Sprint</td>
+                        <td>Mejorar el proceso</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>3. Configuración de Jira</h3>
+            <div class="alert alert-info">
+                <strong>Pasos para configurar Jira:</strong>
+                <ol>
+                    <li>Crear cuenta en Atlassian (gratis para equipos pequeños)</li>
+                    <li>Crear proyecto Scrum</li>
+                    <li>Configurar tipos de issues: Epic, Story, Task, Bug</li>
+                    <li>Definir workflow: To Do → In Progress → Review → Done</li>
+                    <li>Crear Sprints de 2 semanas</li>
+                </ol>
+            </div>
+
+            <h3>4. Planificación con Diagramas GANTT y PERT</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Semana 1-2: Análisis y Diseño</h4>
+                    <p><strong>Recursos:</strong> Todo el equipo (4 personas)</p>
+                    <p><strong>Entregables:</strong> Documentación de requerimientos, diagramas UML, diseño de BD</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Semana 3-4: Setup y Backend Base</h4>
+                    <p><strong>Recursos:</strong> 2 desarrolladores backend</p>
+                    <p><strong>Entregables:</strong> API REST básica, autenticación, base de datos</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Semana 5-6: Frontend Base</h4>
+                    <p><strong>Recursos:</strong> 2 desarrolladores frontend</p>
+                    <p><strong>Entregables:</strong> Interfaz de usuario, integración con API</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Semana 7-8: Funcionalidades Core</h4>
+                    <p><strong>Recursos:</strong> Todo el equipo</p>
+                    <p><strong>Entregables:</strong> CRUD completo, validaciones, manejo de errores</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Semana 9-10: Testing y Refinamiento</h4>
+                    <p><strong>Recursos:</strong> Todo el equipo</p>
+                    <p><strong>Entregables:</strong> Pruebas unitarias, corrección de bugs, optimizaciones</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Semana 11-12: Documentación y Deploy</h4>
+                    <p><strong>Recursos:</strong> Todo el equipo</p>
+                    <p><strong>Entregables:</strong> Manuales, deployment, presentación final</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="diseno" class="section">
+            <h2><span class="icon">🎨</span>Diseño y Arquitectura</h2>
+            
+            <h3>1. Diseño de Base de Datos</h3>
+            <div class="alert">
+                <strong>Proceso de normalización:</strong>
+                <ol>
+                    <li><strong>1NF:</strong> Eliminar grupos repetitivos</li>
+                    <li><strong>2NF:</strong> Eliminar dependencias parciales</li>
+                    <li><strong>3NF:</strong> Eliminar dependencias transitivas</li>
+                </ol>
+            </div>
+
+            <h3>2. Herramientas de Diseño</h3>
+            <div class="resource-list">
+                <div class="resource-item">
+                    <h4>🎨 Figma</h4>
+                    <p>Diseño de interfaces colaborativo</p>
+                    <a href="https://figma.com" target="_blank">figma.com</a>
+                </div>
+                <div class="resource-item">
+                    <h4>🖼️ Canva</h4>
+                    <p>Diseño gráfico simplificado</p>
+                    <a href="https://canva.com" target="_blank">canva.com</a>
+                </div>
+                <div class="resource-item">
+                    <h4>🗄️ dbdiagram.io</h4>
+                    <p>Diseño de diagramas de BD</p>
+                    <a href="https://dbdiagram.io" target="_blank">dbdiagram.io</a>
+                </div>
+                <div class="resource-item">
+                    <h4>📊 Draw.io</h4>
+                    <p>Diagramas técnicos gratuitos</p>
+                    <a href="https://draw.io" target="_blank">draw.io</a>
+                </div>
+            </div>
+
+            <h3>3. Documentación de API</h3>
+            <div class="tech-card">
+                <h4>📋 Swagger/OpenAPI</h4>
+                <p>Documentación interactiva de APIs REST</p>
+                <div class="alert alert-success">
+                    <strong>Ejemplo de endpoint documentado:</strong>
+                    <pre><code>
+POST /api/users
+Content-Type: application/json
+
+{
+  "name": "string",
+  "email": "string",
+  "password": "string"
+}
+
+Responses:
+201 - Usuario creado exitosamente
+400 - Datos inválidos
+409 - Email ya existe
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="desarrollo" class="section">
+            <h2><span class="icon">💻</span>Desarrollo e Implementación</h2>
+            
+            <h3>1. Estructura del Proyecto</h3>
+            <div class="alert alert-info">
+                <strong>Estructura recomendada:</strong>
+                <pre><code>
+proyecto/
+├── backend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── middleware/
+│   │   └── utils/
+│   ├── tests/
+│   └── package.json
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── utils/
+│   ├── public/
+│   └── package.json
+└── docs/
+                </code></pre>
+            </div>
+
+            <h3>2. Control de Versiones con Git</h3>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>🌿 Estrategia de Branching</h4>
+                    <ul>
+                        <li><strong>main:</strong> Código en producción</li>
+                        <li><strong>develop:</strong> Integración de features</li>
+                        <li><strong>feature/nombre:</strong> Nuevas funcionalidades</li>
+                        <li><strong>hotfix/nombre:</strong> Correcciones urgentes</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>📝 Convenciones de Commits</h4>
+                    <ul>
+                        <li><strong>feat:</strong> Nueva funcionalidad</li>
+                        <li><strong>fix:</strong> Corrección de bug</li>
+                        <li><strong>docs:</strong> Documentación</li>
+                        <li><strong>style:</strong> Formato de código</li>
+                        <li><strong>refactor:</strong> Refactorización</li>
+                        <li><strong>test:</strong> Pruebas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>3. Testing Strategy</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo de Prueba</th>
+                        <th>Herramienta</th>
+                        <th>Cobertura</th>
+                        <th>Responsable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Unitarias</td>
+                        <td>Jest</td>
+                        <td>Funciones individuales</td>
+                        <td>Desarrolladores</td>
+                    </tr>
+                    <tr>
+                        <td>Integración</td>
+                        <td>Supertest</td>
+                        <td>APIs y BD</td>
+                        <td>Desarrolladores</td>
+                    </tr>
+                    <tr>
+                        <td>E2E</td>
+                        <td>Cypress</td>
+                        <td>Flujos completos</td>
+                        <td>QA/Desarrolladores</td>
+                    </tr>
+                    <tr>
+                        <td>Manuales</td>
+                        <td>Navegador</td>
+                        <td>UX/UI</td>
+                        <td>Todo el equipo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="documentacion" class="section">
+            <h2><span class="icon">📚</span>Documentación Final</h2>
+            
+            <h3>1. Manual de Usuario</h3>
+            <div class="alert">
+                <strong>Contenido del Manual de Usuario:</strong>
+                <ul>
+                    <li><strong>Introducción:</strong> Propósito del sistema</li>
+                    <li><strong>Requisitos:</strong> Navegador, conexión, etc.</li>
+                    <li><strong>Acceso:</strong> Cómo ingresar al sistema</li>
+                    <li><strong>Funcionalidades:</strong> Guía paso a paso de cada función</li>
+                    <li><strong>Capturas de pantalla:</strong> Imágenes explicativas</li>
+                    <li><strong>Solución de problemas:</strong> Errores comunes</li>
+                    <li><strong>Contacto:</strong> Soporte técnico</li>
+                </ul>
+            </div>
+
+            <h3>2. Manual de Despliegue</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Requisitos del Servidor</h4>
+                    <ul>
+                        <li>Node.js 18+ instalado</li>
+                        <li>Base de datos PostgreSQL/MySQL</li>
+                        <li>Nginx (opcional, para proxy reverso)</li>
+                        <li>SSL certificate para HTTPS</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h4>Variables de Entorno</h4>
+                    <pre><code>
+DATABASE_URL=postgresql://user:pass@localhost:5432/dbname
+JWT_SECRET=your-secret-key
+PORT=3000
+NODE_ENV=production
+                    </code></pre>
+                </div>
+                <div class="timeline-item">
+                    <h4>Comandos de Instalación</h4>
+                    <pre><code>
+# Clonar repositorio
+git clone https://github.com/usuario/proyecto.git
+
+# Instalar dependencias backend
+cd backend && npm install
+
+# Instalar dependencias frontend
+cd ../frontend && npm install
+
+# Construir frontend
+npm run build
+
+# Iniciar servidor
+cd ../backend && npm start
+                    </code></pre>
+                </div>
+            </div>
+
+            <h3>3. Documentación Técnica</h3>
+            <div class="resource-list">
+                <div class="resource-item">
+                    <h4>📋 README.md</h4>
+                    <p>Descripción del proyecto, instalación y uso básico</p>
+                </div>
+                <div class="resource-item">
+                    <h4>🏗️ Arquitectura</h4>
+                    <p>Diagramas de componentes y flujo de datos</p>
+                </div>
+                <div class="resource-item">
+                    <h4>🔌 API Documentation</h4>
+                    <p>Endpoints, parámetros y ejemplos de uso</p>
+                </div>
+                <div class="resource-item">
+                    <h4>🗄️ Base de Datos</h4>
+                    <p>Esquema, relaciones y scripts de migración</p>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="section">
+            <h2><span class="icon">🎯</span>Resumen y Próximos Pasos</h2>
+            <div class="alert alert-info">
+                <strong>Checklist del Proyecto:</strong>
+                <ul>
+                    <li>☐ Análisis completo del problema y requerimientos</li>
+                    <li>☐ Diagramas UML (casos de uso, clases)</li>
+                    <li>☐ Diseño de base de datos normalizada</li>
+                    <li>☐ Configuración de Jira y roles Scrum</li>
+                    <li>☐ Setup del entorno de desarrollo</li>
+                    <li>☐ Implementación del backend (API REST)</li>
+                    <li>☐ Implementación del frontend (React)</li>
+                    <li>☐ Testing y validación</li>
+                    <li>☐ Documentación completa</li>
+                    <li>☐ Despliegue en producción</li>
+                    <li>☐ Presentación final</li>
+                </ul>
+            </div>
+            
+            <div class="alert alert-success">
+                <strong>🚀 ¡Éxito en tu proyecto!</strong><br>
+                Este roadmap te guiará paso a paso en el desarrollo de tu sistema. Recuerda que el aprendizaje es un proceso continuo y cada error es una oportunidad de mejora. ¡Mantén la constancia y la curiosidad!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling para los enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight de la sección activa en la navegación
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
